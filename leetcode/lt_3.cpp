@@ -10,35 +10,35 @@ int compute(string& s)
 {
 	if (s.size() == 0) return 0;
 
-	int plen = 1;
-	int llen = 1;
+	int prev_len = 1;
+	int max_len = 1;
 
-	unordered_map<char, int> map;
+	unordered_map<char, int> hash;
 
-	map[s.at(0)] = 0;
+	hash[s.at(0)] = 0;
 
 	for (int i = 1; i < s.size(); i++)
 	{
 		char c = s.at(i);
 
-		if (map.find(c) == map.end()) {
-			map[c] = i;
-			plen++;
-			if (plen > llen) llen = plen;
+		if (hash.find(c) == hash.end()) {
+			hash[c] = i;
+			prev_len++;
+			if (prev_len > max_len) max_len = prev_len;
 		} else {
-			int pi = map[c];
+			int pi = hash[c];
 
-			map.clear();
+			hash.clear();
 
 			for (int x = pi + 1; x <= i; x++) {
-				map[s.at(x)] = x;
+				hash[s.at(x)] = x;
 			}
 
-			plen = i - pi;
+			prev_len = i - pi;
 		}
 	}
 
-	return llen;
+	return max_len;
 }
 
 /**

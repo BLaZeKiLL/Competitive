@@ -13,35 +13,35 @@ using namespace std;
  */
 double compute(vector<vector<int>>& customers)
 {
-	double w = 0;
-	int t = customers[0][0];
-	int n = 0;
+	double total_wait = 0;
+	int time = customers[0][0];
+	int num_customers = 0;
 
 	for (int i = 0; i < customers.size() ; i++)
 	{
-		int a = customers[i][0];
-		int o = customers[i][1];
+		int arrival = customers[i][0];
+		int order = customers[i][1];
 
-		if (t == a)
+		if (time == arrival)
 		{
-			w += o;
-			t += o;
+			total_wait += order;
+			time += order;
 		}
-		else if (t > a)
+		else if (time > arrival)
 		{
-			w += (t - a) + o;
-			t += o;
+			total_wait += (time - arrival) + order;
+			time += order;
 		}
 		else
 		{
-			w += o;
-			t += (a - t) + o;
+			total_wait += order;
+			time += (arrival - time) + order;
 		}
 
-		n++;
+		num_customers++;
 	}
 
-	return w / n;
+	return total_wait / num_customers;
 }
 
 /**
@@ -59,11 +59,11 @@ int main()
 
 	for (int i = 0; i < n; i++)
 	{
-		int a = 0, o = 0;
-		cin >> a >> o;
+		int arrival = 0, order = 0;
+		cin >> arrival >> order;
 		vector<int> x;
-		x.push_back(a);
-		x.push_back(o);
+		x.push_back(arrival);
+		x.push_back(order);
 		input.push_back(x);
 	}
 

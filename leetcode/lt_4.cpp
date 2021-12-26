@@ -17,31 +17,31 @@ double compute(vector<int>& nums1, vector<int>& nums2)
 
 	int mi = 0, ni = 0;
 
-	double l1, l2;
+	double last1, last2;
 
 	while (mi + ni <= index)
 	{
 		if (mi != nums1.size() && (ni == nums2.size() || nums1[mi] < nums2[ni]))
 		{
-			l2 = l1;
-			l1 = nums1[mi];
+			last2 = last1;
+			last1 = nums1[mi];
 			mi++;
 		}
 		else
 		{
-			l2 = l1;
-			l1 = nums2[ni];
+			last2 = last1;
+			last1 = nums2[ni];
 			ni++;
 		}
 	}
 
 	if (sum % 2 == 0)
 	{
-		median = (l1 + l2) / 2;
+		median = (last1 + last2) / 2;
 	}
 	else
 	{
-		median = l1;
+		median = last1;
 	}
 
 	return median;
