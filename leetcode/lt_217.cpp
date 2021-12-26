@@ -4,9 +4,11 @@
 
 // PROBLEM : https://leetcode.com/problems/contains-duplicate/
 
-bool compute(std::vector<int>& nums)
+using namespace std;
+
+bool compute(vector<int>& nums)
 {
-	auto hash_map = std::unordered_map<int, int>();
+	unordered_map<int, int> hash_map;
 
 	bool result = false;
 
@@ -30,14 +32,14 @@ int main()
 {
 	int n = 0;
 
-	std::cin >> n;
+	cin >> n;
 
-	auto input = std::vector<int>();
+	vector<int> input;
 
 	for (int i = 0; i < n; i++)
 	{
 		int x = 0;
-		std::cin >> x;
+		cin >> x;
 		input.push_back(x);
 	}
 
@@ -45,11 +47,11 @@ int main()
 
 	if (result)
 	{
-		std::cout << "true" << std::endl;
+		cout << "true" << endl;
 	}
 	else
 	{
-		std::cout << "false" << std::endl;
+		cout << "false" << endl;
 	}
 
 	return 0;

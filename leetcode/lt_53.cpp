@@ -3,7 +3,9 @@
 
 // PROBLEM : https://leetcode.com/problems/maximum-subarray/
 
-int recurse(std::vector<int>& nums, int index, int sum, bool take)
+using namespace std;
+
+int recurse(vector<int>& nums, int index, int sum, bool take)
 {
 	if (index == nums.size()) return sum;
 
@@ -31,7 +33,7 @@ int recurse(std::vector<int>& nums, int index, int sum, bool take)
  * @param nums
  * @return int
  */
-int compute(std::vector<int>& nums)
+int compute(vector<int>& nums)
 {
 	int index = 0;
 
@@ -47,14 +49,14 @@ int compute(std::vector<int>& nums)
  * @param nums
  * @return int
  */
-int compute2(std::vector<int>& nums)
+int compute2(vector<int>& nums)
 {
 	int psum = nums[0];
 	int lsum = psum;
 
 	for (int i = 1; i < nums.size(); i++)
 	{
-		psum = std::max(psum + nums[i], nums[i]);
+		psum = max(psum + nums[i], nums[i]);
 		if (psum > lsum) lsum = psum;
 	}
 
@@ -65,18 +67,18 @@ int main()
 {
 	int n = 0;
 
-	std::cin >> n;
+	cin >> n;
 
-	auto input = std::vector<int>();
+	vector<int> input;
 
 	for (int i = 0; i < n; i++)
 	{
 		int x = 0;
-		std::cin >> x;
+		cin >> x;
 		input.push_back(x);
 	}
 
-	std::cout << compute2(input) << std::endl;
+	cout << compute2(input) << endl;
 
 	return 0;
 }

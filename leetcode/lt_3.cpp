@@ -4,14 +4,16 @@
 
 // PROBLEM : https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
-int compute(std::string& s)
+using namespace std;
+
+int compute(string& s)
 {
 	if (s.size() == 0) return 0;
 
 	int plen = 1;
 	int llen = 1;
 
-	auto map = std::unordered_map<char, int>();
+	unordered_map<char, int> map;
 
 	map[s.at(0)] = 0;
 
@@ -46,16 +48,16 @@ int compute(std::string& s)
  * @param s
  * @return int
  */
-int compute2(std::string& s)
+int compute2(string& s)
 {
 	int ans = 0;
-	auto hash = std::unordered_map<char, int>();
+	unordered_map<char, int> hash;
 
 	for(int l = 0, r = 0; r < s.length(); r++)
 	{
 		if (hash.find(s[r]) != hash.end() && l <= hash[s[r]])
 			l = hash[s[r]] + 1;
-		else ans = std::max(ans, r-l+1);
+		else ans = max(ans, r-l+1);
 
 		hash[s[r]] = r;
 	}
@@ -65,11 +67,11 @@ int compute2(std::string& s)
 
 int main()
 {
-	auto input = std::string();
+	string input;
 
-	std::getline(std::cin, input);
+	getline(cin, input);
 
-	std::cout << compute(input) << std::endl;
+	cout << compute(input) << endl;
 
 	return 0;
 }

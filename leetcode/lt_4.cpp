@@ -3,7 +3,9 @@
 
 // PROBLEM : https://leetcode.com/problems/median-of-two-sorted-arrays/
 
-double compute(std::vector<int>& nums1, std::vector<int>& nums2)
+using namespace std;
+
+double compute(vector<int>& nums1, vector<int>& nums2)
 {
 	double median;
 
@@ -49,25 +51,25 @@ int main()
 {
 	int m, n;
 
-	std::cin >> m >> n;
+	cin >> m >> n;
 
-	std::vector<int> nums1, nums2;
+	vector<int> nums1, nums2;
 
 	for (int i = 0; i < m; i++)
 	{
 		int x;
-		std::cin >> x;
+		cin >> x;
 		nums1.push_back(x);
 	}
 
 	for (int i = 0; i < n; i++)
 	{
 		int x;
-		std::cin >> x;
+		cin >> x;
 		nums2.push_back(x);
 	}
 
-	std::cout << compute(nums1, nums2) << std::endl;
+	cout << compute(nums1, nums2) << endl;
 
 	return 0;
 }
