@@ -2,7 +2,7 @@
 #include <string>
 #include <unordered_map>
 
-// PROBLEM : https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
+// PROBLEM : https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 int compute(std::string& s)
 {

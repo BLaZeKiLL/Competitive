@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 
+// PROBLEM : https://leetcode.com/problems/median-of-two-sorted-arrays/
+
 double compute(std::vector<int>& nums1, std::vector<int>& nums2)
 {
 	double median;
