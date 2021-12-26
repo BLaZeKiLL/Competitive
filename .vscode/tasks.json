@@ -9,11 +9,11 @@
         "/EHsc",
         "/nologo",
         "/Fe:",
-        "${fileDirname}\\bin\\${fileBasenameNoExtension}.exe",
+        "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
         "${file}"
       ],
       "options": {
-        "cwd": "${fileDirname}\\bin"
+        "cwd": "${workspaceFolder}\\bin"
       },
       "problemMatcher": [
         "$msCompile"
