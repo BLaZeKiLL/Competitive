@@ -65,7 +65,6 @@ vector<int> kmp_search(string& text, string& pattern)
 		}
 	}
 
-
 	return result;
 }
 
