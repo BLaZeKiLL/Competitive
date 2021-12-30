@@ -31,6 +31,23 @@ void compute(vector<int> &nums, int k)
 	nums = result;
 }
 
+/**
+ * @brief STl solution, n = 7, k = 3
+ * 1 2 3 4 5 6 7
+ * 4 3 2 1 5 6 7
+ * 4 3 2 1 7 6 5
+ * 5 6 7 1 2 3 4
+ * @param nums
+ * @param k
+ */
+void rotate(vector<int>& nums, int k) {
+	int n = nums.size();
+	k = k % n;
+	reverse(nums.begin(), nums.begin() + (n - k));
+	reverse(nums.begin() + (n - k), nums.end());
+	reverse(nums.begin(), nums.end());
+}
+
 int main()
 {
 	int n = 0, k = 0;
